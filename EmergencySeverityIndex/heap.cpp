@@ -8,13 +8,21 @@ void heap::newPatient(string name, int priority)
 
 string heap::next()
 {
-	if (!patients.size()) return "";
+	if (patients.size() == 0) return "There is no one waiting.";
 
 	string nextPatient = patients[0].first;
-	pair<string, int> temp = patients[patients.size() - 1];
-	patients.pop_back();
-	patients[0] = temp;
-	heapify(patients, patients.size());
+
+	if (patients.size() > 1)
+	{
+		pair<string, int> temp = patients[patients.size() - 1];
+		patients.pop_back();
+		patients[0] = temp;
+		heapify(patients, patients.size());
+	}
+	else
+	{
+		patients.pop_back();
+	}
 
 	return nextPatient;
 }
