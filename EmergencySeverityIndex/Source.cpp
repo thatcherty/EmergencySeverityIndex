@@ -13,6 +13,8 @@ int main()
 		patientList.newPatient(to_string(i+65), (i%5)+1);
 	}
 
+	cout << "The initial patient list: " << endl;
+
 	patientList.print();
 
 	cout << endl;
