@@ -4,13 +4,25 @@ using namespace std;
 
 int main()
 {
-	int size = 15;
-
+	int size;
+	int priority;
 	heap patientList;
+
+	cout << "Enter the number of patients to add: " << endl;
+	cin >> size;
 
 	for (int i = 0; i < size; i++)
 	{
-		patientList.newPatient(to_string(i+65), (i%5)+1);
+		cout << "Please enter the priority for patient number " << i+1 << " (1-5): " << endl;
+		cin >> priority;
+
+		while (priority > 5 || priority < 1)
+		{
+			cout << "Please enter a valid priority for patient number " << i+1 << " (1-5): " << endl;
+			cin >> priority;
+		}
+
+		patientList.newPatient(to_string(i+1), priority);
 	}
 
 	cout << "The initial patient list: " << endl;
