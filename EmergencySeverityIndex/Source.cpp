@@ -25,7 +25,7 @@ int main()
 		patientList.newPatient(to_string(i+1), priority);
 	}
 
-	cout << "The initial patient list: " << endl;
+	cout << "The initial patient list (patient - priority): " << endl;
 
 	patientList.print();
 
