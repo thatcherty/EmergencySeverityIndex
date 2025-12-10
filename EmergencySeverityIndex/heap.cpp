@@ -53,13 +53,13 @@ void heap::heapify(vector<pair<string,int>>& arr, int size)
 				break;
 			}
 
-			if (arr[2 * curr + 1].second > arr[curr].second)
+			if (arr[2 * curr + 1].second < arr[curr].second)
 			{
 				// left child is greater than parent
 				left = true;
 			}
 
-			if (2 * curr + 2 < size && arr[2 * curr + 2].second > arr[curr].second)
+			if (2 * curr + 2 < size && arr[2 * curr + 2].second < arr[curr].second)
 			{
 				// right child is greater than parent
 				right = true;
@@ -67,7 +67,7 @@ void heap::heapify(vector<pair<string,int>>& arr, int size)
 
 			if (left && right)
 			{
-				if (arr[2 * curr + 1].second > arr[2 * curr + 2].second)
+				if (arr[2 * curr + 1].second < arr[2 * curr + 2].second)
 				{
 					// swap parent and left node
 					pair<string,int> temp = arr[2 * curr + 1];
